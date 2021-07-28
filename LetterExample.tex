@@ -1,0 +1,80 @@
+\documentclass[12pt,a4paper]{scrlttr2}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+% Number one rule: Search it on the internet. There is a solution for almost anything on tex.stackexchange.
+
+% Comments beginn with %
+% The document begins with the preamble. This again begins with the document class. Normally this is a standard class like article, letter or book. In german normally koma classes are used (just google koma script).
+% Below the document class, several packages are listed, which are used in the document. In general there is a package for almost anything. i.e. if you have tables, that span over several pages, you need the longtable packages. graphicx for example can include png and pdf files (but no jpg).
+% Commands always start with \ and end with a space. Exception: \- which is a word\-se\-pa\-ra\-tion suggestion. \ and a following space is a command itself and is a forced space, ~ is a protected space.
+% A %-sign is done by \%. 
+
+
+% The part where you can write text is started with \begin{document}
+\begin{document}
+
+% The following lines where put together by using google. Use it like this, change a bit and see, what happens.
+\setkomavar{fromname}{Johannes Wurst}
+\setkomavar{fromaddress}{Metzgergasse 3\\54321 Frankfurt} 
+%\setkomavar{fromzipcode}{}
+\setkomavar{fromemail}{email@email.de}
+%\setkomavar{fromfax}{}
+%\setkomavar{fromlogo}{}
+\setkomavar{frommobilephone}{0123 456 789 11}
+%\setkomavar{fromphone}{}
+%\setkomavar{fromurl}{}
+
+\setkomavar{location}{Frankfurt am Amazonas\hspace*{-20pt}}% I added negative space to tweak the ugly line break. Delete and see.
+
+
+%\setkomavar{title}{}
+\setkomavar{subject}{This is a subject}
+
+\setkomavar{toaddress}{Empfängerstraße \\ Empfängerort}
+\setkomavar{toname}{Empfängername}
+%\setkomavar{yourmail}{}
+\setkomavar{yourref}{Referenznummer o.Ä.}
+%\setkomavar{myref}{Referenznummer o.Ä.}
+
+
+\setkomavar{date}{\today}
+\setkomavar{place}{Memmingen}
+\setkomavar{signature}{\includegraphics[width=0.2\textwidth]{./Unbenannt.png} \\ signing man}%
+
+% The \begin{letter} starts the environment for the letter, which also creates the formatting of the from-address, the to-address and everything else.
+\begin{letter}{}
+% Alternative: \begin{letter}{\usekomavar{toname} \\ z.H. von \\ \usekomavar{toaddress}}
+
+\firsthead{} % adds a currently empty heading
+\firstfoot{} % see firsthead
+%\firsthead{\hspace{-72pt} \includegraphics[width=\paperwidth]{./Briefkopf.pdf}} % Content of the heading
+\pagenumbering{gobble} % Type of page enumeration. gobble = no page numbering, roman or arabic are alternatives.
+\pagestyle{empty} % allows the use of style sheets.
+
+\parbox{\textwidth}{ %This holds the text together. Note the corresponding end of the command (see the '}' at the end)
+\opening{Dear Misters and Misses,}
+
+This is a text. A new line starts with $\backslash \backslash$ ~ \\% $ begins and ends the math environment, which is needed to print slashes. Delete the dollar signs and see, what happes, when compiling the document. ~ creates a protected space.
+That looks like this. New lines via $\backslash \backslash$~are \emph{evil}. Either a new paragraph or nothing. Only in special cases, you need a new line. This is also possible via the command $\backslash newline$.
+
+A new paragraph is created by using two line feeds. Now I fill fill fill fill fill fill fill fill fill fill fill fill fill fill the line.
+
+And again gain gain gain gain gain gain gain gain gain gain gain gain gain gain gain gain gain gain gain gain gain gain gain gain gain gain gain gain the same.
+
+\hspace{15pt} As you see, there is no visible difference, between a new line and a new paragraph, because we are inside the parbox. If you delete the parbox command and its finishing bracket, you will see the difference. Normally there is an indent on any new paragraph, like I created it here manually.
+
+\closing{With love and roses,}
+
+} % parbox
+
+\vfill % Creates a variable, vertical space. The available filling space on a page is divided by the number of vfill commands. There is also a horizontal fill, \hfill. A defined space can be obtained with \vspace{12pt, mm, cm, or 0.2\someLaTeXlength} or hspace.
+\parbox{\textwidth}{Attachments: Document 1; Document 2; Document 3}
+
+\end{letter}
+
+\end{document}

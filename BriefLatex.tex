@@ -1,0 +1,82 @@
+\documentclass[12pt,a4paper]{scrlttr2}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+% Regel Nummer 1: Such es im Internet. Es gibt für fast alle LaTeX-Probleme eine Lösung auf tex.stackexchange.
+
+% Kommentare beginnen mit %
+% Das Dokument beginnt mit der Präambel. Diese beginnt mit documentclass, welche beschreibt, welches Dokumentenklasse genommen wird. Generell wird im Deutschen immer eine sogenannte Komaklasse verwendet (einfach Koma script latex googeln).
+% Darunter stehen die packages die verwendet werden. Die obenstehenden sind Standards, die immer mit drin sind. Wenn man zum Beispiel Tabellen über mehrere Seiten hat, muss man longtable einbinden. graphicx kann pdf und png einbinden, aber keine jpg.
+% Befehle beginnen immer mit \ und enden mit einem Leerzeichen. Ausnahme: bei \- (Trennnungsvorschlag) wird ohne Leerzeichen weitergeschrieben.
+% Ein einfaches \ mit Leerzeichen dahinter wir ein erzwungenes Leerzeichen im Text. ~ wird ein geschütztes Leerzeichen (wie Buchstabe)
+% Ein \\ macht eine neue Zeile.
+% Um zum Beispiel ein Prozentzeichen darzustellen, schreibt man \% .
+
+
+\begin{document}
+
+% Das Folgende ist zusammen gegoogelt. Am besten einfach so verwenden. Einfach mal schauen, was passiert, wenn was verändert wird.
+\setkomavar{fromname}{Johannes Wurst}
+\setkomavar{fromaddress}{Metzgergasse 3\\54321 Frankfurt} 
+%\setkomavar{fromzipcode}{}
+\setkomavar{fromemail}{email@email.de}
+%\setkomavar{fromfax}{}
+%\setkomavar{fromlogo}{}
+\setkomavar{frommobilephone}{0123 456 789 11}
+%\setkomavar{fromphone}{}
+%\setkomavar{fromurl}{}
+
+% Beachte: Der folgende Block bildet ein ganzes. Wenn man hinter eine geschweifte Klammer klickt, wird die zugehörige markiert.
+\setkomavar{location}{Frankfurt am Amazonas\hspace*{-20pt}}% Mit dem negativen Abstand unterdrücke ich den hässlichen Zeilenumbruch. Einfach mal entfernen und sehen, was passiert.
+
+
+%\setkomavar{title}{}
+\setkomavar{subject}{Dies ist ein Betreff}
+
+\setkomavar{toaddress}{Empfängerstraße \\ Empfängerort}
+\setkomavar{toname}{Empfängername}
+%\setkomavar{yourmail}{}
+\setkomavar{yourref}{Referenznummer o.Ä.}
+%\setkomavar{myref}{Referenznummer o.Ä.}
+
+
+\setkomavar{date}{\today}
+\setkomavar{place}{Memmingen}
+\setkomavar{signature}{\includegraphics[width=0.2\textwidth]{./Unbenannt.png} \\ Unterzeichner}%
+
+% Der nachfolgende befehl beginnt die Letter-Umgebung. Diese formatiert den Briefkopf und alles darum herum.
+\begin{letter}{}
+% Alternative: \begin{letter}{\usekomavar{toname} \\ z.H. von \\ \usekomavar{toaddress}}
+\firsthead{} %fügt eine (momentan leere Kopfzeile hinzu)
+\firstfoot{} %Siehe firsthead
+%\firsthead{\hspace{-72pt} \includegraphics[width=\paperwidth]{./Briefkopf.pdf}} % Inhalt der Kopfzeile
+
+\pagestyle{empty} %erlaubt die Verwendung von stylesheets
+
+\pagenumbering{gobble} %Art der Seitennummerierung. gobble = keine, arabic und roman sind selbsterklärend.
+
+\parbox{\textwidth}{ %hier halte ich den Text zusammen. Einfach mal den Befehl und die zugehörige, geschweifte End-Klammer entfernen und sehen, was passiert.
+\opening{Sehr geehrte Damen und Herren,}
+
+Hier ist ein Text. Eine neue Zeile mache ich mit $\backslash \backslash$ ~ \\% $ beginnt und beendet die Matheumgebung die für diesen Befehl erforderlich ist. Einfach mal rauslöschen und schauen, was passiert. ~ macht ein hartes Leerzeichen
+Dann schaut das so aus. Neue Zeilen via $\backslash \backslash$~sind \emph{böse}. Entweder neuer Absatz oder gar nichts. Nur in Sonderfällen wird eine manuelle neue Zeile benötigt. Dies geht auch über den Befehl $\backslash newline$.
+
+Einen neuen Absatz mache ich mit zwei Leerzeilen. Nun schreibe ich die Zeile voll voll voll voll voll voll voll voll voll voll voll voll.
+
+Und noch ein Absatz. Noch mal mal mal mal mal mal mal mal mal mal mal mal mal mal mal mal mal mal mal mal mal das Ganze.
+
+\hspace{15pt} Man sieht keinen Unterschied zwischen neuer Zeile und Absatz, da wir uns in einer parbox befinden. Am Anfang eines neuen Absatzes erscheint normalerweise so eine Eindellung, wie ich sie hier manuell erzeugt habe.
+
+\closing{Mit freundlichen Grüßen,}
+
+}
+\vfill %Erzeugt einen flexiblen Zwischenraum. Der Zwischenraum der auf einer Seite zur Verfügung steht, wird durch die Anzahl der \vfill geteilt. Es gibt auch ein \hfill. Einen definierten Abstand bekommt man mit \vspace{12pt, mm, cm, oder 0.2\irgendeinelatexlänge} oder hspace.
+\parbox{\textwidth}{Anhang: Dokument 1; Dokument 2; Dokument 3}
+
+\end{letter}
+
+\end{document}
